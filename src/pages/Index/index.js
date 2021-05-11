@@ -46,7 +46,7 @@ export default class Index extends React.Component{
         isSwiperLoaded:false,
         groups:[],
         news:[],
-        curCityName:'上海'
+        curCityName:'北京' 
       }
 
    async getSwipers() {
