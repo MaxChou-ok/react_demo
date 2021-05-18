@@ -5,6 +5,8 @@ import Nav1 from '../../assets/images/nav-1.png'
 import Nav2 from '../../assets/images/nav-2.png'
 import Nav3 from '../../assets/images/nav-3.png'
 import Nav4 from '../../assets/images/nav-4.png'
+import { getCurrentCity } from '../../utils/index'
+import 'react-virtualized/styles.css'
 
 import './index.css'
 
@@ -85,16 +87,14 @@ export default class Index extends React.Component{
     })
     }
 
-    componentDidMount() {
+   async componentDidMount() {
        this.getSwipers()
        this.getGroups()
        this.getNews()
-       const curCity =  new window.BMap.LocalCity()
-       curCity.get(async res=>{
-         const result = await axios.get(`http://localhost:8080/area/info?name=${res.name}`)
-         this.setState({
-            curCityName:result.data.body.label
-         })
+      
+       const curCity = await getCurrentCity()
+       this.setState({
+           curCityName:curCity.label
        })
       }
     

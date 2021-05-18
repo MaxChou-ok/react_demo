@@ -135,3 +135,6 @@
     bottom: 7px;
     right: 25px;
 }
+ul{
+    list-style: none;
+}
